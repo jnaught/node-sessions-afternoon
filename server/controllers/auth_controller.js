@@ -1,12 +1,12 @@
-const swag = require(`${__dirname}/models/swag`);
-const users = require(`${__dirname}/models/users`);
+const swag = require("../models/swag");
+const users = require("../models/users");
 let id = 1;
 
 module.exports = {
   login: (req, res, next) => {
     const { session } = req;
     const { username, password } = req.body;
-    const user = user.find(
+    const user = users.find(
       user => user.username === username && user.password === password
     );
     if (user) {
@@ -19,7 +19,7 @@ module.exports = {
   register: (req, res, next) => {
     const { session } = req;
     const { username, password } = req.body;
-    user.push({ id, username, password });
+    users.push({ id, username, password });
     id++;
     session.user.username = username;
     res.status(200).send(session.user);

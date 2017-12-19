@@ -1,4 +1,4 @@
-const swag = require(`${__dirname}/models/swag`);
+const swag = require("../models/swag");
 
 module.exports = {
   read: (req, res, next) => {
